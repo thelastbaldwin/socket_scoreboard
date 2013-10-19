@@ -1,0 +1,22 @@
+{
+  "name": "scoreboard",
+  "version": "0.0.0",
+  "description": "two way scoreboard",
+  "main": "server.js",
+  "dependencies": {
+    "express": "~3.4.1",
+    "request": "~2.27.0",
+    "socket.io": "~0.9.16"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": "",
+  "keywords": [
+    "scoreboard"
+  ],
+  "author": "Steve Minor",
+  "license": "BSD"
+}
