@@ -3,9 +3,8 @@ var express = require('express'),
 	server = require('http').createServer(app),
 	io = require('socket.io').listen(server);
 
-server.listen(80);
+server.listen(8080);
 app.use(express.bodyParser());
-
 
 var playerScores = {
 	billy : 0,
@@ -15,15 +14,19 @@ var playerScores = {
 	brent : 0
 };
 
+app.use("/js", express.static(__dirname + '/js'));
+app.use("/css", express.static(__dirname + '/css'));
+
 app.get('/', function (req, res) {
 	res.sendfile(__dirname + '/index.html');
 });
 
 app.post('/', function (req, res){
 	var contents = req.body;
-	res.send(200);
+	res.end();
 
 	//update the player's score in the score data
+	playerScores[contents.name] += parseInt(contents.value);
 
 	//resend all scores
 	io.sockets.emit('score_update', playerScores);
@@ -32,8 +35,8 @@ app.post('/', function (req, res){
 io.sockets.on('connection', function (socket) {
 	socket.emit('score_update', playerScores);
 
-	// socket.on('score_update', function (data) {
-	// 	//update the scores stored on server
-	// 	console.log(data);
-	// });
+	socket.on('client_update', function (data) {
+		playerScores = data;
+		socket.broadcast.emit('score_update', playerScores);
+	});
 });
