@@ -6,11 +6,11 @@ var request = require('request');
 
 //TODO: map numeric values to player names
 var map = [
-	'billy',	// 1
-	'bobby',	// 2
-	'braden',	// 3
-	'barret',	// 4
-	'brent'];	// 5
+	'justin', // 1
+	'joe', // 2
+	'tara', // 3
+	'kristina', // 4
+	'alexander'];	// 5
 
 
 var playerName = map[process.argv[2]-1]; //entering 1 will get index 0. This can be changed to an explicit name

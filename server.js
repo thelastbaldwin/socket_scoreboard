@@ -7,15 +7,16 @@ server.listen(8080);
 app.use(express.bodyParser());
 
 var playerScores = {
-	billy : 0,
-	bobby : 0,
-	braden : 0,
-	barret : 0,
-	brent : 0
+	justin : 0,
+	joe : 0,
+	tara : 0,
+	kristina : 0,
+	alexander : 0
 };
 
 app.use("/js", express.static(__dirname + '/js'));
 app.use("/css", express.static(__dirname + '/css'));
+app.use("/img", express.static(__dirname + '/img'));
 
 app.get('/', function (req, res) {
 	res.sendfile(__dirname + '/index.html');
