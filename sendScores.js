@@ -28,4 +28,5 @@ var scoreIncrement = process.argv[3];
 // });
 
 // only method working in ubuntu
-request.post({uri: 'http://localhost:8080', json: {name: playerName, value: scoreIncrement}});
+var hostIP = 'http://localhost:8080';
+request.post({uri: hostIP, json: {name: playerName, value: scoreIncrement}});

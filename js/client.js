@@ -42,7 +42,8 @@ var scores = {
 var players = []; //necessary to preserve event handlers
 
 //websockets
-var socket = io.connect('http://localhost');
+var hostIP = 'http://localhost';
+var socket = io.connect(hostIP);
 	socket.on('score_update', function (serverScores) {
 		scores.set(serverScores, false);
 });
